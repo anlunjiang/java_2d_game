@@ -10,7 +10,7 @@ public class Window extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //allows to exit the window
         setContentPane(new GamePanel(1280, 720));
         pack(); // compacts window
-        setLocationRelativeTo(null);
+        setLocationRelativeTo(null); // center gui
         setVisible(true);
     }
 
