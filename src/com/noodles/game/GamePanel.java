@@ -47,7 +47,7 @@ public class GamePanel extends JPanel implements Runnable { // creates a thread
         g = (Graphics2D) img.getGraphics(); // can draw on the buffered image
 
         mouse = new MouseHandler();
-        key = new KeyHandler();
+        key = new KeyHandler(this);
 
         gsm = new GameStateManager();
     }
