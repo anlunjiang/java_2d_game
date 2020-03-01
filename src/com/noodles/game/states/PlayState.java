@@ -3,7 +3,8 @@ package com.noodles.game.states;
 import com.noodles.game.utils.KeyHandler;
 import com.noodles.game.utils.MouseHandler;
 
-import java.awt.*;
+import java.awt.Graphics2D;
+import java.awt.Color;
 
 public class PlayState extends GameState{
 
@@ -16,6 +17,9 @@ public class PlayState extends GameState{
     }
 
     public void input(MouseHandler mouse, KeyHandler key) {
+        if(key.up.down) {
+            System.out.println("'W' is being pressed");
+        }
 
     }
 
