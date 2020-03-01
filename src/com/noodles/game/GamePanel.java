@@ -1,5 +1,9 @@
 package com.noodles.game;
 
+import com.noodles.game.states.GameStateManager;
+import com.noodles.game.utils.KeyHandler;
+import com.noodles.game.utils.MouseHandler;
+
 import javax.swing.JPanel;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -14,6 +18,11 @@ public class GamePanel extends JPanel implements Runnable { // creates a thread
     private BufferedImage img;
     private Graphics2D g;
     private boolean running = false;
+
+    private MouseHandler mouse;
+    private KeyHandler key;
+
+    private GameStateManager gsm;
 
     public GamePanel(int width, int height) {
         this.width = width; // "this" replaced with the instance object name (GamePanel.width = width)
@@ -36,6 +45,11 @@ public class GamePanel extends JPanel implements Runnable { // creates a thread
         running = true;
         img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB); // will be drawn onto screen
         g = (Graphics2D) img.getGraphics(); // can draw on the buffered image
+
+        mouse = new MouseHandler();
+        key = new KeyHandler();
+
+        gsm = new GameStateManager();
     }
 
     public void run() {
@@ -61,7 +75,7 @@ public class GamePanel extends JPanel implements Runnable { // creates a thread
 
             while(((now - lastUpdateTime) > TBU) && (updateCount < MUBR)) {
                 update();
-                input();
+                input(mouse, key);
                 lastUpdateTime += TBU;
                 updateCount++;
             }
@@ -70,6 +84,7 @@ public class GamePanel extends JPanel implements Runnable { // creates a thread
                 lastUpdateTime = now - TBU;
             }
 
+            input(mouse, key);
             render();
             draw();
             lastRenderTime = now;
@@ -97,21 +112,20 @@ public class GamePanel extends JPanel implements Runnable { // creates a thread
         }
     }
 
-    private int x = 0;
-
     public void update() {
+        gsm.update();
+    }
 
+    public void input(MouseHandler mouse, KeyHandler key) {
+        gsm.input(mouse, key);
     }
 
     public void render() {
         if(g != null) {
             g.setColor(new Color(66, 134,244));
             g.fillRect(0, 0, width, height); // background
+            gsm.render(g);
         }
-    }
-
-    public void input() {
-
     }
 
     public void draw() {
