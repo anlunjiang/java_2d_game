@@ -20,6 +20,12 @@ public class PlayState extends GameState{
         if(key.up.down) {
             System.out.println("'W' is being pressed");
         }
+        if(mouse.getButton() != -1) {
+            System.out.println(mouse.getButton());
+        }
+        System.out.println(mouse.getX());
+        //System.out.println(mouse.getX());
+        //System.out.println(mouse.getButton());
 
     }
 
