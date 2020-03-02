@@ -46,7 +46,7 @@ public class GamePanel extends JPanel implements Runnable { // creates a thread
         img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB); // will be drawn onto screen
         g = (Graphics2D) img.getGraphics(); // can draw on the buffered image
 
-        mouse = new MouseHandler();
+        mouse = new MouseHandler(this);
         key = new KeyHandler(this);
 
         gsm = new GameStateManager();
