@@ -6,7 +6,6 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-import java.util.Vector;
 
 public class Sprite {
 
@@ -139,7 +138,6 @@ public class Sprite {
             x += xOffset;
             y += yOffset;
             // good to draw
-
         }
     }
 }
