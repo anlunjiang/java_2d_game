@@ -23,9 +23,6 @@ public class PlayState extends GameState{
         if(mouse.getButton() != -1) {
             System.out.println(mouse.getButton());
         }
-        System.out.println(mouse.getX());
-        //System.out.println(mouse.getX());
-        //System.out.println(mouse.getButton());
 
     }
 

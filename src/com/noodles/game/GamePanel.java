@@ -5,7 +5,11 @@ import com.noodles.game.utils.KeyHandler;
 import com.noodles.game.utils.MouseHandler;
 
 import javax.swing.JPanel;
-import java.awt.*;
+import java.awt.Graphics2D;
+import java.awt.Dimension;
+import java.awt.Color;
+import java.awt.Graphics;
+
 import java.awt.image.BufferedImage;
 import java.nio.Buffer;
 
