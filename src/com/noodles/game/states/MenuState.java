@@ -21,7 +21,7 @@ public class MenuState extends GameState {
     }
 
     @Override
-    public void render(Graphics2D g) {
+    public void render(Graphics2D g, int x) {
 
     }
 }

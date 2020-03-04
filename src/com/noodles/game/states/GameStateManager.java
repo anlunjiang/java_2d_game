@@ -66,9 +66,9 @@ public class GameStateManager {
         }
     }
 
-    public void render(Graphics2D g) {
+    public void render(Graphics2D g, int x) {
         for(int i = 0; i < states.size(); i++) {
-            states.get(i).render(g);
+            states.get(i).render(g, x);
         }
 
     }

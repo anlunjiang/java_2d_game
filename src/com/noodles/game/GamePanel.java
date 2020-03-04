@@ -72,7 +72,7 @@ public class GamePanel extends JPanel implements Runnable { // creates a thread
         int frameCount = 0;
         int lastSecondTime = (int) (lastUpdateTime / 1000000000);
         int oldFrameCount = 0;
-
+        int x = 1;
         while(running) {
             double now = System.nanoTime();
             int updateCount = 0;
@@ -89,7 +89,13 @@ public class GamePanel extends JPanel implements Runnable { // creates a thread
             }
 
             input(mouse, key);
-            render();
+
+
+
+            render(x);
+            x+=4;
+
+
             draw();
             lastRenderTime = now;
             frameCount++;
@@ -124,11 +130,11 @@ public class GamePanel extends JPanel implements Runnable { // creates a thread
         gsm.input(mouse, key);
     }
 
-    public void render() {
+    public void render(int x) {
         if(g != null) {
             g.setColor(new Color(66, 134,244));
             g.fillRect(0, 0, width, height); // background
-            gsm.render(g);
+            gsm.render(g, x);
         }
     }
 

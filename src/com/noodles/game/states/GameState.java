@@ -15,6 +15,6 @@ public abstract class GameState { // abstract class - cant be instantiated, only
 
     public abstract void update();
     public abstract void input(MouseHandler mouse, KeyHandler key);
-    public abstract void render(Graphics2D g);
+    public abstract void render(Graphics2D g, int x);
 
 }

@@ -101,8 +101,6 @@ public class Font {
 
         int x = value % wLetter; // mod to get x value - below the max width
         int y = value / wLetter; // works because it's a 10 x 8 sprite array
-        System.out.println("value = " + value);
-        System.out.println("x, y = " + x + " " + y);
 
         return getLetter(x, y);
     }

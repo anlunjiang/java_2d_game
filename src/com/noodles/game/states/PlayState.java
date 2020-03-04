@@ -31,10 +31,11 @@ public class PlayState extends GameState{
 
     }
 
-    public void render(Graphics2D g) {
+    public void render(Graphics2D g, int move_dist_x) {
 //        g.setColor(Color.RED);
 //        g.fillRect(100, 100, 64, 64);
-        Sprite.drawArray(g, font, "aa your mooom", new Vector2f(100, 100), 32, 32, 32, 0 );
+        System.out.println(move_dist_x);
+        Sprite.drawArray(g, font, "HELLO WORLD", new Vector2f(-320 + move_dist_x, 100), 32, 32, 32, 0 );
     }
 
 }
