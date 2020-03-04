@@ -1,45 +1,46 @@
 package com.noodles.game.graphics;
 
+package com.noodles.game.graphics;
+
 import com.noodles.game.utils.Vector2f;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-import java.util.Vector;
 
-public class Sprite {
+public class Font {
 
-    private BufferedImage SPRITESHEET = null; // sheet of sprite coords
+    private BufferedImage FONTSHEET = null; // sheet of sprite coords
     private BufferedImage[][] spriteArray;
     private final int TILE_SIZE = 32;
     public int w;
     public int h;
-    public int wSprite;
-    public int hSprite;
+    public int wLetter;
+    public int hLetter;
 
     // Constructor
-    public Sprite(String file) {
+    public Font(String file) {
         w = TILE_SIZE;
         h = TILE_SIZE;
 
         System.out.println("Loading: " + file + "...");
 
-        SPRITESHEET = loadSprite(file);
+        FONTSHEET = loadSprite(file);
 
-        wSprite = SPRITESHEET.getWidth() / w;
-        hSprite = SPRITESHEET.getHeight() / h;
+        wLetter = FONTSHEET.getWidth() / w;
+        hLetter = FONTSHEET.getHeight() / h;
         loadSpriteArray();
     }
 
-    public Sprite(String file, int w, int h) {
+    public Font(String file, int w, int h) {
         this.w = w;
         this.h = h;
         System.out.println("Loading: " + file + "...");
-        SPRITESHEET = loadSprite(file);
+        FONTSHEET = loadSprite(file);
 
-        wSprite = SPRITESHEET.getWidth() / w;
-        hSprite = SPRITESHEET.getHeight() / h;
+        wLetter = FONTSHEET.getWidth() / w;
+        hLetter = FONTSHEET.getHeight() / h;
         loadSpriteArray();
     }
 
@@ -50,12 +51,12 @@ public class Sprite {
 
     public void setWidth(int i) {
         w = i;
-        wSprite = SPRITESHEET.getWidth() / w;
+        wLetter = FONTSHEET.getWidth() / w;
     }
 
     public void setHeight(int i) {
         h = i;
-        hSprite = SPRITESHEET.getWidth() / h;
+        hLetter = FONTSHEET.getWidth() / h;
     }
 
     public int getWidth() {
@@ -78,34 +79,26 @@ public class Sprite {
     }
 
     public void loadSpriteArray() {
-        spriteArray = new BufferedImage[wSprite][hSprite]; // total number of sprites in spritesheet
+        spriteArray = new BufferedImage[wLetter][hLetter]; // total number of sprites in spritesheet
 
-        for(int x = 0; x < wSprite; x++) {
-            for(int y = 0; y < hSprite; y++) {
-                spriteArray[x][y] = getSprite(x, y);
+        for(int x = 0; x < wLetter; x++) {
+            for(int y = 0; y < hLetter; y++) {
+                spriteArray[x][y] = getLetter(x, y);
             }
         }
     }
 
-    public BufferedImage getSpriteSheet() {
-        return SPRITESHEET;
+    public BufferedImage getfontsheet() {
+        return FONTSHEET;
     }
 
-    public BufferedImage getSprite(int x, int y) {
+    public BufferedImage getLetter(int x, int y) {
 
-        return SPRITESHEET.getSubimage(x * w, y * h, w, h); // w and h are the sprite tile size
+        return FONTSHEET.getSubimage(x * w, y * h, w, h); // w and h are the sprite tile size
         //x, y – the X, Y coordinates of the upper-left corner of the specified rectangular region
         //w, h – the width/height of the specified rectangular region
         //Returns:
         //a BufferedImage that is the subimage of this BufferedImage
-    }
-
-    public BufferedImage[] getSpriteArray(int i) {
-        return spriteArray[i]; // used by animation class
-    }
-
-    public BufferedImage[][] getSpriteArray2(int i) {
-        return spriteArray; // used by animation clas
     }
 
     public static void drawArray(
@@ -126,7 +119,7 @@ public class Sprite {
     }
 
     public static void drawArray(
-            Graphics2D g, Font f, String word, Vector2f pos, int width, int height, int xOffset, int yOffset
+            Graphics2D g, java.awt.Font f, String word, Vector2f pos, int width, int height, int xOffset, int yOffset
     ) {
         float x = pos.x;
         float y = pos.y;
@@ -143,3 +136,4 @@ public class Sprite {
         }
     }
 }
+
