@@ -6,11 +6,10 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-import java.util.Vector;
 
 public class Sprite {
 
-    private final BufferedImage SPRITESHEET = null; // sheet of sprite coords
+    private BufferedImage SPRITESHEET = null; // sheet of sprite coords
     private BufferedImage[][] spriteArray;
     private final int TILE_SIZE = 32;
     public int w;
@@ -131,31 +130,14 @@ public class Sprite {
         float x = pos.x;
         float y = pos.y;
 
-        for(int i = 0; i < word.length(); i++) {
-            if(word.charAt(i) != 32) { // 32 is the space key
+        for (int i = 0; i < word.length(); i++) {
+            if (word.charAt(i) != 32) { // 32 is the space key
                 g.drawImage(f.getFont(word.charAt(i)), (int) x, (int) y, width, height, null);
             }
 
             x += xOffset;
             y += yOffset;
             // good to draw
-
+        }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
